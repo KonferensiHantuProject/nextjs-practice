@@ -1,4 +1,5 @@
 import styles from '../../styles/Bone.module.css';
+import Link from 'next/link'
 
 // Run when component is rendered
 export const getStaticProps = async () => {
@@ -21,11 +22,9 @@ const Bone = ({ bones }) => {
         <div>
             <h1>Bone List</h1>
             {bones.map(bone => (
-                <div key={bone.id}>
-                    <a className={styles.single}>
-                        <h3>{bone.name}</h3>
-                    </a>
-                </div>
+                <Link href={'/bone/' + bone.id} className={styles.single} key={bone.id}>
+                    <h3>{bone.name}</h3>
+                </Link>
             ))}
         </div>
      );
